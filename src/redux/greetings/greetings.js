@@ -38,12 +38,10 @@ export function fetchGreeting() {
     dispatch({ type: GREETING_REQUEST });
 
     return fetch('http://localhost:4000/api/random_message')
-      .then(response => {
-        return response.json()
-      })
+      .then((response) => response.json())
       .then(({ message }) => {
-        dispatch({ type: GREETING_SUCCESS, result: message })
+        dispatch({ type: GREETING_SUCCESS, result: message });
       })
-      .catch(error => dispatch({ type: GREETING_FAILURE, error }));
-  }
+      .catch((error) => dispatch({ type: GREETING_FAILURE, error }));
+  };
 }
